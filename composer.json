@@ -1,0 +1,23 @@
+{
+    "name": "cotya/composer-test-framework",
+    "description": "a framework to easier build tests for composer installer and plugins",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Flyingmana",
+            "email": "flyingmana@googlemail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Cotya\\ComposerTestFramework\\": "src/"
+        }
+    },
+    "require": {
+        "symfony/process":"*",
+        "symfony/filesystem":"*"
+    },
+    "require-dev": {
+        "phpunit/phpunit":"4.*"
+    }
+}
