@@ -77,8 +77,11 @@ class Wrapper
     
     public function install(\SplFileInfo $projectDirectory, \SplFileObject $composerJson)
     {
-
-        file_put_contents($projectDirectory->getPathname().'/composer.json', $composerJson);
+        //file_put_contents is not able to handle SplString
+        file_put_contents(
+            $projectDirectory->getPathname().'/composer.json',
+            (string)\Cotya\ComposerTestFramework\Helper\FileObject::getContent($composerJson)
+        );
         $process = new Process(
             $this->getComposerCommand().' install '.$this->getComposerArgs().' ',
             $projectDirectory->getPathname()
