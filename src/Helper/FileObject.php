@@ -25,7 +25,11 @@ class FileObject
      */
     public static function getContent(\SplFileObject $fileObject)
     {
-        $result = new \SplString;
+        if (class_exists('SplString')) {
+            $result = new \SplString;
+        } else {
+            $result = '';
+        }
 
         $fileObject->rewind();
         while (!$fileObject->eof()) {

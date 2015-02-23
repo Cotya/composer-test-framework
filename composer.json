@@ -14,9 +14,11 @@
         }
     },
     "require": {
-        "ext-SPL_Types":"*",
         "symfony/process":"*",
         "symfony/filesystem":"*"
+    },
+    "suggest": {
+      "ext-SPL_Types":"*"
     },
     "require-dev": {
         "phpunit/phpunit":"4.*"
