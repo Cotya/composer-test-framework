@@ -56,12 +56,13 @@ class Wrapper
     {
         $this->processObjectList[] = $process;
         if ($process->getExitCode() !== 0) {
-            $message =
+            $message = $messageEnd =
                 'process for <code>'.$process->getCommandLine().'</code> exited with '.
                 $process->getExitCode().': '.$process->getExitCodeText();
             $message .= PHP_EOL.'Error Message:'.PHP_EOL.$process->getErrorOutput();
             $message .= PHP_EOL.'Output:'.PHP_EOL.$process->getOutput();
-            echo $message;
+            $message .= PHP_EOL.$messageEnd;
+            throw new \Exception($message, $process->getExitCode());
         }
     }
     
