@@ -42,8 +42,10 @@ class Wrapper
 
     protected function getComposerCommand()
     {
-        $command = '/usr/bin/env php '.$this->executable->getRealPath();
-        return $command;
+        if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+            return PHP_BINARY . ' ' . $this->executable->getRealPath();
+        }
+        return '/usr/bin/env php '.$this->executable->getRealPath();
     }
     
     protected function getComposerArgs()
