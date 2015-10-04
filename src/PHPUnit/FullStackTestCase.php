@@ -27,8 +27,11 @@ abstract class FullStackTestCase extends \PHPUnit_Framework_TestCase
     
     protected static function getTempComposerProjectPath()
     {
-        $path = sys_get_temp_dir() . DIRECTORY_SEPARATOR . "ComposerTests" . DIRECTORY_SEPARATOR  . get_called_class();
-        $path = str_replace('\\', '_', $path);
+        $path = sprintf(
+            "%s/ComposerTests/%s",
+            str_replace('\\', '/', sys_get_temp_dir()),
+            str_replace('\\', '_', get_called_class())
+        );
         return new \SplFileInfo($path);
     }
 }
