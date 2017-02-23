@@ -127,4 +127,11 @@ class Wrapper
         $process->run();
         $this->handleProcessResult($process);
     }
+
+    /**
+     * @return Process
+     */
+    public function getLastRunProcessObject() {
+        return end($this->processObjectList);
+    }
 }
