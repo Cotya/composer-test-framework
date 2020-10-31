@@ -24,7 +24,7 @@ class Wrapper
 
     public function __construct($version = null)
     {
-        $downloadUrl = 'https://getcomposer.org/composer.phar';
+        $downloadUrl = 'https://getcomposer.org/download/1.9.3/composer.phar';
         if (null!==$version) {
             $downloadUrl = 'https://getcomposer.org/download/'.$version.'/composer.phar';
         }
